@@ -1,0 +1,141 @@
+// Mixins
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+@mixin transition($transition) {
+  transition: $transition;
+  -moz-transition: $transition;
+  -webkit-transition: $transition;
+  -o-transition: $transition;
+}
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  filter: alpha(opacity=#{$opacity * 100});
+}
+
+// Font imports
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+
+* {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0px;
+}
+body, input, button {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 300;
+  font-size: large;
+  color : #FFFFFF;
+}
+body {
+  padding: 60px 0px;
+  
+  text-align: center;
+  background-color: #303030;
+}
+main {
+  width: 700px;
+  margin: 0px auto;
+}
+h1 {
+  font-size: xx-large;
+}
+p.lead {
+  font-weight: 700;
+}
+a {
+  color: #CCCCCC;
+}
+
+// Button
+button {
+  width: 150px;
+  margin: 3px;
+  padding: 6px 12px;
+  
+  font-size: large;
+  background-color: #606060; 
+  cursor: pointer;
+  border: none;
+  @include border-radius(6px);
+  @include transition(0.2s ease-in-out);
+  
+  &:hover, &:focus {
+    background-color: #E0E0E0;
+    color: #000000;
+  }
+  
+  &.green {
+    background-color: #40C040;
+    color: #000000;
+  }
+  &.red {
+    background-color: #C04040;
+    color: #000000;
+  }
+}
+
+// Answers
+div.answers {
+  display: table;
+  margin: 0px auto;
+  border-spacing: 6px;
+  
+  // Answer button
+  button.answer {
+    display: table-cell;
+    height: 150px;
+    vertical-align: middle;
+  }
+}
+
+div.score {
+  display: inline-block;
+  width: 100px;
+  padding: 8px;
+  
+  font-weight: 700;
+  font-size: x-large;
+  border: 4px #FFFFFF solid;
+  @include border-radius(6px);
+}
+
+// CTA table
+div.ctas {
+  
+  // CTA Display
+  div.ctas-cell {
+    display: inline-block;
+    margin: 3px;
+  }
+  
+  // CTA canvas
+  canvas.cta {
+    margin: 0;
+    @include border-radius(6px);
+  }
+}
+
+// Loading bar
+div.loading {
+  width: 100%;
+  height: 6px;
+  margin-bottom: 1em;
+  
+  background-color: #606060;
+  @include border-radius(6px);
+  
+  // Inner loading bar
+  div.loading-inner {
+    width: 0px;
+    height: 100%;
+    
+    background-color: #E0E0E0;
+    @include border-radius(6px);
+  }
+}
+
+//#092869
